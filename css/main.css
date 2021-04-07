@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap'); /*import poppins*/
+
+html, body{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-image: url("http://ftp.riken.jp/Linux/scientific/graphics/version-3/backgrounds/Edge.of.Space/atomshine-6-night.svg");
+    background-repeat: no-repeat;
+    background-color: #363636;
+    background-size: cover; /*voor de volledige breedte*/
+    color: white;
+    min-height: 100vh;
+}
+
+header{
+    display: flex;
+    position: sticky;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 150px;
+    top: 0; /*dan blijft het tegen de bovenkant aan staan*/
+    background-color: #1E1E1E;
+    z-index: 99; /*zodat er geen verwaring komt met wat er voorop moet*/
+}
+
+/*vaste container voor de flexbox van het dashboard*/
+#flexbox{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+}
+
+h1{
+    font-size: 1.2em;
+}
+
+p{
+    margin-top: 0;
+    line-height: 1.2;
+    font-size: 1em;
+}
+
+.noted{
+    font-size: 12px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+main{
+    margin: 0 20px 0 20px;
+}
+
+#mapContainer{
+    width: 100%;
+    margin: 20px 0;
+}
+
+#map{
+    height: 55vh;
+    border-radius: 8px;
+}
+
+#box{
+    width: 100%;
+    background-color: #6C6C6C;
+    padding: 0 20px 0 20px;
+}
+
+#countryName{
+    padding-left: 10px;
+}
+
+#language{
+    color: black;
+}
+
+#menu{
+    display: flex;
+    flex-flow: row;
+}
+
+
+/*de media query's zijn puur voor minor scaling en flex plaatsing*/
+
+@media only screen and (min-width: 600px) {
+
+    h1{
+        font-size: 1.5em;
+    }
+    
+    p{
+        font-size: 0.8em;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+
+    #flexbox{
+        flex-wrap: nowrap;
+    }
+
+    #map{
+        width: 95%;
+        padding: 0;
+        margin: 0;
+        margin-right: 20px;
+    }
+
+    #data{
+        width: calc(40% - 30px);
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+
+    #flexbox{
+        flex-wrap: wrap;
+    }
+
+    #map{
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    #data{
+        width: 100%;
+        padding: 0 20px;
+    }
+
+ 
+    main{
+        margin: 0 5% 0 5%;
+    }
+
+    p{
+        font-size: 1.2em;
+    }
+}

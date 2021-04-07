@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Challenge 3 - XT2</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- eigen js en css -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js' defer></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- van de verschillende api's -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js" defer></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
+
+
+     <!-- Promise polyfill script is required -->
+     <!-- to use Mapbox GL Geocoder in IE 11. -->
+     <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js" defer></script>
+     <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js" defer></script>
+
+     <!-- Dark mode -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+
+     <!-- eigen css en js (moet als laatst anders werkt niks) -->
+     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="js/main.js" defer></script>
+
+</head>
+<body>
+
+    <header>
+        <h1>SPACEX LANDING PROCEDURE: PICK YOUR LAY-OUT!</h1>
+        <div id="menu">
+        <input id="dark-v10" type="radio" name="rtoggle" value="dark" checked="checked">
+        <label for="dark-v10">dark</label><br class="hidden">
+        <input id="light-v10" type="radio" name="rtoggle" value="light">
+        <label for="light-v10">light</label><br class="hidden">
+        <input id="satellite-v9" type="radio" name="rtoggle" value="satellite">
+        <label for="satellite-v9">satellite</label><br class="hidden">
+        <input id="streets-v11" type="radio" name="rtoggle" value="streets">
+        <label for="streets-v11">streets</label><br class="hidden">
+        <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors">
+        <label for="outdoors-v11">outdoors</label>
+    </div>
+    </header>
+
+   <!--  algemene container -->
+    <main>
+        
+        <!-- de flexbox -->
+        <div id="flexbox">
+            
+            <!-- de map -->
+            <article id="mapContainer">
+                    <!-- Dit is de daadwerkelijke div met de map erin -->
+                    <div id="map"></div>
+                </article>
+
+            <!-- div met data -->
+            <div id="box">
+                
+                <div id="landContainer">
+                    
+                    <h1 id="countryName"><span id="country"></span></h1>
+
+                </div>
+
+                 <p>Because not all of you are from the same country, here is the language that the natives of this country speak: <span id="language"></span>. Stay save and we wish you a happy integration! Sincerly Hamster-King George ||</p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
+
