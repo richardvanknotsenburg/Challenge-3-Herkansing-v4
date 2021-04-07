@@ -1,0 +1,17 @@
+@media only screen and (min-width: 768px) {
+
+    #flexbox{
+        flex-wrap: nowrap;
+    }
+
+    #map{
+        width: 95%;
+        padding: 0;
+        margin: 0;
+        margin-right: 20px;
+    }
+
+    #data{
+        width: calc(40% - 30px);
+    }
+}

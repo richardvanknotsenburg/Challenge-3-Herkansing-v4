@@ -42,7 +42,7 @@ var marker = new mapboxgl.Marker({ color: '#000000'})
 var searchbar = document.querySelector('.mapboxgl-ctrl-geocoder--input');
 searchbar.addEventListener('change', getSearchResult);
 
-//voor het veranderen van de map in andere kleurtjes.
+//Ik denk niet dat dit meetelt als zijnde  nieuwe api, maar ik vond het toch de moeite waard om erbij te doen, omdat het de look en feel van het dashboard versterkt. Wel zo handig bij 30+ passagiers.
 var layerList = document.getElementById('menu');
 var inputs = layerList.getElementsByTagName('input');
  
@@ -55,12 +55,9 @@ for (var i = 0; i < inputs.length; i++) {
 inputs[i].onclick = switchLayer;
 }
 
-
-//Variabelen voor de functie getSearchResults
 var searchTerm;
 var searchCountry;
 
-// In deze functie sla ik de data op en maak ik er een array van. Ik heb met dit stuk echt veel gekloot. Op het internet veel over gevonden. Het geeft in de console nog steeds een error, maar in principe werkt het gewoon. De error komt alleen als je iets anders dan een land in de zoekbalk intikt. Dit heeft te maken met dat de andere API alleen maar land-info weergeeft. Als je dus bijv. een adres of stad intikt krijg je een error, terwijl hij erna wel direct herkent om welk land het gaat & dus werkt het.
 function getSearchResult(e) {
     searchTerm = e.target.value;
     var searchArray = searchTerm.split(', ');
@@ -68,11 +65,11 @@ function getSearchResult(e) {
     getAPIdata();
 }
 
-// Met deze functie haal ik de data op uit de tweede API en plaats ik deze in de html
+// Deze functie hebben we in de les behandeld en heb ik dan ook gebruikt.
 function getAPIdata() {
-    // Dit is de standaard input: Zweden. Omdat ik wil dat de voorkeurs-landingsplek Zweden wel blijft bestaan. 
-    var country = searchCountry ? searchCountry : 'Netherlands';
-	// construct request. Met ${} kan je met de input de link veranderen. Dit is een kortere manier dan te werken met een optelsom van stukjes link code. Gevonden op internet hoe het moet en werkt super chill :)
+    
+    var country = searchCountry ? searchCountry : 'Netherlands'; //Dit kleine stukje code heb ik van een klasgenoot, omdat ik hier helemaal op vast liep.
+	// construct request. ${ } gebruik ik op twitch.tv altijd om commands te creëren als er een variabel aangeroepen moet worden (ik bedoel iets dat veranderd) zoals een username.
 	var request = `https://restcountries.eu/rest/v2/name/${country}?fullText=true`;
 
 	// get current country
@@ -85,16 +82,14 @@ function getAPIdata() {
 	
 	// do something with response
 	.then(function(response) {
-        // Verander de html tekst naar de landnaam
         var country = document.getElementById('country').innerHTML = response[0].name;
-        // verander de html tekst naar de gesproken taal
         var language = document.getElementById('language').innerHTML = response[0].languages[0].name;
 	});
 }
 
-// init data stream
 getAPIdata();
 
+//nu kan de map daadwerkelijk geladen worden, tip van Fedor :D
 map.on('load', function () {
     map.resize();
 });
