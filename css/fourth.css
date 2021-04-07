@@ -2,6 +2,8 @@
 
     #flexbox{
         flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
     }
 
     #map{
@@ -9,10 +11,16 @@
         margin: 20px 0;
     }
 
+    #box{
+    width: 50%;
+    }
+
     #data{
         width: 100%;
         padding: 0 20px;
     }
+
+   
 
  
     main{
