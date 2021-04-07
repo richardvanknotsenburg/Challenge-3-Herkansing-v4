@@ -31,7 +31,7 @@ return t;
 }
 });
 
-// Marker voor Friesland, Bantega
+// Marker voor Friesland, Bantega. In de les behandeld
 var popup = new mapboxgl.Popup().setHTML('<h3 class="noted">Secret Landing spot. Property of SpaceX. Code: 23-1423-BAI</h3>');
 var marker = new mapboxgl.Marker({ color: '#000000'})
 
@@ -59,8 +59,8 @@ var searchTerm;
 var searchCountry;
 
 function getSearchResult(e) {
-    searchTerm = e.target.value;
-    var searchArray = searchTerm.split(', ');
+    searchTerm = e.target.value; //The target property of the Event interface is a reference to the object onto which the event was dispatched.
+    var searchArray = searchTerm.split(', ');//The split() method is used to split a string into an array of substrings, and returns the new array.
     searchCountry = searchArray[searchArray.length - 1];
     getAPIdata();
 }
